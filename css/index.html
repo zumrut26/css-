@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssDers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="test2">
+        <div>div etiketi</div>
+        <div>
+            div etiketi
+            <div>div etiketi 2</div>
+        </div>
+        <div>div etiketi</div>
+    </div>
+
+    <h3 style="color: red">başlık etiketi</h3>
+    <h3>başlık etiketi</h3>
+
+    <div id="test">
+        div etiketi
+    </div>
+    <div id="test2">
+        div etiketi
+    </div>
+
+    <!--Aynı html sayfasında niteliği aynı olan birden fazla id olamaz. id : benzersiz demek. eğer birden fazla etikete 
+        aynı stil işlemi uygulamak için id kullanmamız gerekiyorsa kullanmıyoruz çünkü bunun tam tersi class diye bir niteiğimiz var. 
+        Css2te # işareti görüyorsak, bu id niteliği taşıyan bir elemanı seçmek için kullanılan bir değerdir. nokta ise class niteliği taşıyan
+        bir elemanı seçmek için kullanılır.-->
+
+
+    <div class="test">
+        div etiketi
+    </div>
+    <div class="test">
+        div etiketi
+    </div>
+
+
+
+    <p class="test">
+        paragraf etiketi
+    </p>
+
+    <p class="test color-green">
+        paragraf etiketi
+    </p>
+
+
+    <!--ikinci bir paragrafa da test verildiğinde bu geçerli bir kullanım olur.çünkü id gibi  aynı değerleri taşıyamaz değil.
+    classların amacı budur.ortak stile sahip olan bütün etiketler aynı class ismini kullanır ki tek bir yerden css stil değiştiğimiz zaman 
+    bütün hepsine etki etsin. ayrıca birden fazla class da tanımlanabilir. -->
+
+
+    <p class="color-green">
+        <!--bu şekilde sadece paragraf yazısı yeşil olur.-->
+        paragraf etiketi
+    </p>
+
+    <p class="test color-green" id="deneme">
+        paragraf etiketi
+    </p>
+
+
+    <div>
+        <p>paragraf etiketi</p>
+        <h3>başlık etiketi</h3>
+        <!--bunu seçmek için-->
+        <div>div etiketi</div>
+        <h3>başlık etiketi</h3>
+    </div>
+
+    <div class="prototurk" data-oncesi="bu öncesi yazısı">
+        <!--data kısmı sabittir, diğer kısmı vereceğimiz değerdir-->
+        prototürk
+    </div>
+
+    <input type="text" placeholder="Adınızı yazın...">
+
+    <ul>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+        <li>Liste</li>
+    </ul>
+
+    <a href="#">prototurk.com</a>
+
+    <input type="checkbox">
+    <div>
+        div etiketi
+    </div>
+
+    <div>block seviyesinden bir eleman</div>
+    <!--üzerine geldiğinde genişliği sayfanın tamamını kapsıyorsa block seviyesinden bir elemandır. 
+                                              yani içerisindeki değer kadar değil de sayfanın genişliği kadar kapsıyor.-->
+
+    <span>inline seviyesinden bir eleman</span>
+    <!--içeerisindeki içerik kadardır ve bunun da displayi inlinedır. dolayısıyla bazı css özellikleri
+                                              inline olan elemanlara verilemez. ama display ile bunun görünümünü değiştirebiliriz.-->
+
+
+    <div class="box">
+        div etiketii
+    </div>
+
+    <div class="box2">div etiketii</div>
+
+    <h3>başlık etiket</h3>
+
+    <p>paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf
+        etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi
+        paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf etiketi paragraf
+        etiketi paragraf etiketi
+    </p>
+
+    <div class="bg">
+        div etiketi
+    </div>
+
+    <div class="kutu">
+        <span>span</span>
+        <p>paragraf etiketi</p>
+    </div>
+
+    <a href="#">test et</a>
+
+</body>
+
+</html>

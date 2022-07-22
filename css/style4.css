@@ -1,0 +1,343 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+}
+
+body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+div.container {
+    display: flex;
+    height: 100%;
+    }
+
+.container .sidebar {
+    width: 300px;
+    min-width: 300px;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .sidebar .search {
+    height: 50px;
+    min-height: 50px;
+    border-bottom: 1px solid #dddd;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.container .sidebar .search input {
+    width: 100%;
+    height: 33px;
+    background-color: #ffff;
+    border-radius: 20px;
+    padding: 0 40px 0 10px;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+.container .sidebar .search i.fa.fa-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: #999;
+}
+
+.container .sidebar .talks {
+    overflow: auto;
+    height: calc(100vh - 51px);
+}
+
+div.container .sidebar .person-information {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    padding: 0 10px;
+}
+
+div.container .sidebar .person-information img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+div.container .sidebar .person-information .name {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+div.container .sidebar .person-information .last-text {
+    font-size: 13px;
+    color: rgb(94, 87, 87);
+}
+
+div.container .sidebar .person-information .number {
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    line-height: -initial;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+div.container .content {
+    flex: 1;
+    border-left: 1px solid #dddd;
+}
+
+div.container .content .message-header {
+    height: 50px;
+    min-height: 50px;
+    border-bottom: 1px solid #dddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+div.container .content .message-header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+div.container .content .message-header .user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+div.container .content .message-header .user-info .name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+}
+
+div.container .content .message-header .user-info .time {
+    font-size: 13px;
+    color: #999;
+}
+
+div.container .content .message-header .actions {
+    display: flex;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 19px;
+    color: #999;
+}
+
+div.container .content .message-header .actions .ellipsis {
+    margin-left: 10px;
+}
+
+div.container .content .message-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow: auto;
+    height: calc(100vh - 81px - 57px);
+}
+
+div.container .content .message-content .message-me {
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+div.container .content .message-content .message-me .bubble {
+    background-color: #339af0;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+div.container .content .message-content .message-me .time {
+    text-align: right;
+    color: #999;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+div.container .content .message-content .message {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+div.container .content .message-content .message .bubble {
+    padding: 6px 12px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+div.container .content .message-content .message .time {
+    color: #999;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+div.container .content .message-form {
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+    background-color: lightblue;
+}
+
+div.container .content .message-form .send-message {
+    display: flex;
+    align-items: center;
+}
+
+div.container .content .message-form .send-message .emoji {
+    margin: 0 5px;
+}
+
+div.container .content .message-form .send-message .emoji .emoji-wrapper a i {
+    width: 36px;
+    height: 36px;
+    display: block;
+    background-color: #339af0;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+
+div.container .content .message-form .send-message .input-wrapper {
+    flex: 1;
+}
+
+div.container .content .message-form .send-message input {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 36px;
+    font-size: 14px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+div.container .content .message-form .send-message .microphone {
+    margin: 0 5px;
+}
+
+div.container .content .message-form .send-message .microphone-wrapper a i {
+    width: 36px;
+    height: 36px;
+    display: block;
+    background-color: #ff5722;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+
+div.container .content .message-form .send-message .image {
+    margin: 0 5px;
+}
+
+div.container .content .message-form .send-message .image-wrapper a i {
+    width: 36px;
+    height: 36px;
+    display: block;
+    background-color: #4caf50;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* div.container .content .message-form {
+    border-top: 1px solid #ddd;
+    padding: 10px 10px;
+    background-color: lightblue;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+
+div.container .content .message-form .emoji {
+    display: flex;
+    align-items: center;
+}
+
+div.container .content .message-form .input-wrapper {
+    flex: 1;
+}
+
+div.container .content .message-form input {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 36px;
+    font-size: 14px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+div.container .content .message-form a i {
+    width: 36px;
+    height: 36px;
+    background-color: #000;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+div.container .content .message-form .fa.fa-laugh {
+    background-color: #339af0;
+}
+
+div.container .content .message-form .fa.fa-microphone {
+    background-color: #ff5722;
+}
+
+div.container .content .message-form .fa.fa-image {
+    background-color: #4caf50;
+}
+
+.microphone-wrapper {
+    padding: 10px;
+}
+
+.emoji-wrapper {
+    padding: 10px;
+} */

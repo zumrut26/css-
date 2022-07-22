@@ -1,0 +1,186 @@
+body {
+    background-color: lime;
+}
+h3 {
+    color: blue;
+}
+
+div {
+    background-color: lime;
+}
+    
+#test {       /*başına div koyarsak divler içerisinde id si test olanları seçmiş olur. yani diğer div bir paragraf
+    etiketi olsaydı ve id si test olsaydı onu seçmezdi.*/
+    background-color: red; 
+}
+
+.test {
+    background-color: red;
+}
+
+p.test {
+    background-color: red;
+}
+
+p#deneme {
+    color: green;
+}
+
+p.test {
+    color: black
+}
+
+p.color-green {
+    color: blue;
+}
+
+.test.color-green {     /*bu ise paragraflarda classı hem test olan hem de classı color-green olanı seç demek*/
+    color: green;
+}
+
+
+                  /* csste en çok etiketin adı kullanılarak seçilir. ya da id değerine göre. 
+                  en çok da class değerine göre seçip stil işlemi uygulanır. 
+                  Başka bir şey iSe * işareti evrensel seçicidir. Bütün etiketleri seç demek. 
+                  Mesela bütün etiketleri seçip rengini mavi yap gibi.
+                  Yalnızca altında kalanı yani en son ne yazıldıysa onu okur.En büyük öncelik id dir.
+                  ilk başta id varsa onun özelliğini alır.eğer id yoksa ve class varsa class özellğini alır.*/
+
+p {
+    color: red !important;
+}
+
+* {
+    color:blue;
+}
+
+.test2 > div {
+    background-color: rebeccapurple;
+}
+
+                   /*sadece çocuk etiketleri seçmek için arada büyüktür işareti kullanılır.*/
+
+
+p + h3 {
+    color: red;
+}
+
+div.prototurk::before {  /*iki tane nokta :: götüyorsanız sözde elemanlardır.*/
+   content: attr(data-oncesi);
+   color: red;
+   background-color: green;
+}
+div.prototurk::after {  /*attr fonksiyonunu sadece content özelliği ile, contenti ise sadece before ve afterda kullanıyoruz.*/
+    content: attr(class);
+    color: red;
+    background-color: green;
+ }
+
+
+ ::selection {     /*yazıları seçerken çıkan rengi değiştirmek için kullanılır.*/
+   background-color: lime ;
+   color: red;
+
+ } 
+
+ input::placeholder {
+ 
+     color: red;
+     font-size:"30px";
+ }
+
+ ul li:first-child  {
+     background-color: orange;
+ }
+
+ ul li:last-child  {
+    background-color: orange;
+}
+
+ ul li:nth-child(2n) {
+     background-color: lime;
+ }
+
+ a:hover {
+     font-size: 40px;
+     background-color: green;
+ }
+
+ input[type="checkbox"]:checked + div {     /*nitelik seçici olarak köşeli parantez kullanılır.inputlarda type niteiği olanı seç gibi*/
+     display: none;
+ }
+
+ span {
+     display: block;
+ }
+
+ .box {
+     width: 300px;
+     height: 300px;
+     background-color: lime;
+     padding: 50px;
+     border: dashed black;
+     box-sizing: border-box;   /*genişlik ve yüksekliğin aynı kalması için kullanılır.*/
+     border-radius: 10px 50px 25px 100px; /*bu özellik köşeleri yumuşatır. verilen değerler saat yönüne doğru işler. genişliği ve yüksekliği aynı değerde olur ve 50% yaparsak tam yuvarlak olur.*/
+ }
+
+ .box2 {
+    background-color: orange;   
+    padding: 15px 30px 40px 10px;
+    margin: 15px 30px 50px 50px;
+    border: 5px solid black;    /*solid yerine dotted kullanılabilir, nokta nokta. ya da dashed da kullanılabilir, çizgi çizgi.*/
+    border-left: none;
+    border-right-color: green;
+    border-bottom-style: dotted;
+ }
+
+ h3 {
+     color: #fa6585;
+     font-family: Roboto, sans-serif;
+     font-size: 50px;
+     font-style: italic;
+     font-weight: bold;
+     letter-spacing: 4px; /*harf arasındaki boşluğu ayarlar.*/
+     text-shadow: 2px 2px 0 black;
+ }
+
+ p {
+     line-height: 30½;   /*yazıların satır aralarındaki boşluğu ayarlar. daha okunur hale getirir.*/
+     font: bold italic 20px/30px Arial, sans-serif;
+     text-align: center;
+     word-spacing: 10px;  /*kelimeler arasındaki boşluğu ayarlar*/
+ }
+
+ .bg {
+     width: 100½;
+     height: 400½;
+     background-color: lime;
+     background-image: url();
+     background-size: cover;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+ }
+
+ .kutu {
+     width: 500px;
+     height: 500px;
+     background-color: lime;
+     margin-top: 50px;
+     position: relative;
+ }
+
+ .kutu span {
+     position: fixed; /*4 değer alıyor. relative, absolute, fixed, sticky. absolutele hacmini almış ve istediğimiz konuma getirebilir yapıyoruz.*/
+     top: 80px;
+     left: 50px;
+     width: 100px;
+     height: 100px;
+     background-color: orange;
+     z-index: 2;
+ }
+
+ a {
+     text-decoration: none;
+ }
+

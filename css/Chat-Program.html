@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        div.container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        div#aramakutusu {
+            border: 1px solid #000;
+            background-color: white;
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        div#aramakutusu button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            width: 15px;
+            height: 15px;
+        }
+
+        div#aramakutusu button img {
+            width: 15px;
+            height: 15px;
+        }
+
+        div#aramakutusu input#AKutu {
+            border: none;
+            outline: none;
+            width: calc(100% - 40px);
+        }
+
+        .container .sidebar {
+            width: 300px;
+            border-right: 1px solid #ddd;
+            overflow: auto;
+            padding: 10px 0;
+            background-color: #eaeaea;
+        }
+
+        .container .sidebar h4 {
+            font-size: 20px;
+            color: #000;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding: 0 5px;
+            margin: 10px 1px;
+        }
+
+        .talking-list {
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+        .person-information {
+            display: flex;
+            width: 100%;
+        }
+
+        .top-content .person-information {
+            border-bottom: 1px solid #f3ecec;
+            height: 50px;
+        }
+
+        .person-information .left-person-information {
+            width: 50px;
+            height: auto;
+            padding: 0 15px;
+        }
+
+        .person-information .left-person-information .person-image {
+            border: none;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .person-information .right-person-information {
+            text-align: justify;
+            font-size: 15px;
+            font-weight: 500;
+            color: #222;
+            padding: 10px 0;
+        }
+
+        .person-information .right-person-information .last-seen {
+            text-align: justify;
+            font-weight: normal;
+            color: grey;
+            font-size: 13px;
+        }
+
+        .person-information .right-person-information .last-text {
+            text-align: justify;
+            font-size: 12px;
+            color: grey;
+            padding-top: 5px;
+        }
+
+        .content {
+            width: calc(100% - 301px)
+        }
+
+        .top-content {
+            height: 50px;
+        }
+
+        .bottom-content {
+            height: calc(100vh - 50px - 51px);
+            overflow: auto;
+        }
+
+        .message-form {
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+            background-color: lightblue;
+            border-top: 1px solid #ddd;
+            padding: 10px 15px;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .talking-area {
+            padding-top: 15px;
+        }
+
+        .talking-area>div {
+            display: flex;
+            width: calc(100vw - 350px);
+        }
+
+        .talking-area>div>.message {
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        .right-talking-area {
+            flex-direction: row-reverse;
+        }
+
+        .left-talking-area {
+            flex-direction: row;
+            padding-left: 15px
+        }
+
+        .right-talking-area .message {
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 15px;
+            margin-bottom: 5px;
+            background-color: #339af0;
+            color: #fff;
+        }
+
+        .left-talking-area .message {
+            padding: 6px 12px;
+            background-color: #f7f7f7;
+            border-radius: 20px;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .talking-area .message-box .message-info {
+            color: grey;
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        .talking-area .right-talking-area .message-box .message-info {
+            text-align: right;
+            color: grey;
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        .content .message-form {
+            border-top: 1px solid #ddd;
+            padding: 10px 10px;
+            background-color: lightblue;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+        }
+
+        .content .message-form>div>input {
+            width: 56pc;
+        }
+
+        .content .message-form input {
+            width: 100%;
+            height: 36px;
+            border: 1px solid #ddd;
+            border-radius: 36px;
+            font-size: 14px;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .content .message-form a i {
+            width: 36px;
+            height: 36px;
+            background-color: #000;
+            color: #fff;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .content .message-form .fa.fa-laugh {
+            background-color: #339af0;
+        }
+
+        .content .message-form .fa.fa-microphone {
+            background-color: #ff5722;
+        }
+
+        .content .message-form .fa.fa-image {
+            background-color: #4caf50;
+        }
+
+        .microphone-wrapper {
+            padding: 10px;
+        }
+
+        .emoji-wrapper {
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div id="aramakutusu">
+                <input placeholder="Ara..." type="text" name="ara" id="AKutu">
+                <button type="button"><img src="search.icon.png"></button>
+            </div>
+            <div id="talking">
+                <h4>Sohbetler</h4>
+                <ul class="talking-list">
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-information">
+                            <div class="left-person-information">
+                                <img class="person-image" src="sumeyye.png" alt="pp">
+                            </div>
+                            <div class="right-person-information">
+                                <div class="name">Sümeyye Zümrüt</div>
+                                <div class="last-text">Bu bir test mesajıdır.</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="top-content">
+                <div class="person-information">
+                    <div class="left-person-information">
+                        <img class="person-image" src="sumeyye.png" alt="pp">
+                    </div>
+                    <div class="right-person-information">
+                        <div class="name">Sümeyye Zümrüt</div>
+                        <div class="last-seen">15 Dk Önce</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-content">
+                <div class="talking-area">
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="left-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                    <div class="right-talking-area">
+                        <div class="message-box">
+                            <div class="message">Test mesaj.</div>
+                            <div class="message-info">5 dk önce</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-form">
+                <div class="emoji-wrapper">
+                    <a href="#">
+                        <i class="fa fa-laugh">
+                        </i>
+                    </a>
+                </div>
+                <div>
+                    <input type="text" placeholder="Bir şeyler yaz..">
+                </div>
+                <div class="microphone-wrapper">
+                    <a href="#">
+                        <i class="fa fa-microphone">
+                        </i>
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#">
+                        <i class="fa fa-image">
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
